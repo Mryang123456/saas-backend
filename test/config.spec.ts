@@ -1,0 +1,6 @@
+import { describe,expect,it } from 'vitest';
+import { assertSupportedMySqlVersion,validateConfig } from '../src/config';
+const base={DATABASE_URL:'mysql://user:password@localhost:3306/procureflow',SESSION_TOKEN_PEPPER:'x'.repeat(32)};
+describe('production configuration',()=>{it('rejects wildcard CORS',()=>expect(()=>validateConfig({...base,CORS_ALLOWED_ORIGINS:'*'})).toThrow());it('rejects localhost in production',()=>expect(()=>validateConfig({...base,NODE_ENV:'production',CORS_ALLOWED_ORIGINS:'http://localhost:5173'})).toThrow());it('accepts exact https origin',()=>expect(validateConfig({...base,NODE_ENV:'production',CORS_ALLOWED_ORIGINS:'https://app.example.com'}).PORT).toBe(3000));it('rejects a non-MySQL database URL',()=>expect(()=>validateConfig({...base,DATABASE_URL:'postgresql://localhost/procureflow'})).toThrow('DATABASE_URL must use the mysql:// scheme'))});
+
+describe('MySQL server version',()=>{it('accepts the supported baseline and newer releases',()=>{expect(()=>assertSupportedMySqlVersion('8.0.16')).not.toThrow();expect(()=>assertSupportedMySqlVersion('8.4.3')).not.toThrow()});it('rejects MySQL 5.7 and MariaDB',()=>{expect(()=>assertSupportedMySqlVersion('5.7.19-log')).toThrow('MySQL 8.0.16+ is required');expect(()=>assertSupportedMySqlVersion('10.11.8-MariaDB')).toThrow('MySQL 8.0.16+ is required')})});

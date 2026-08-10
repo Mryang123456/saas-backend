@@ -1,0 +1,10 @@
+node_modules
+dist
+.env
+coverage
+openapi.json
+.npm-cache
+*.log
+*.sqlite
+*.sqlite3
+*.db
