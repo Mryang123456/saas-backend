@@ -31,7 +31,7 @@ describe('MySQL V1 baseline', () => {
   });
 
   it('contains no PostgreSQL-only SQL in submission or approval transactions', () => {
-    const sources = `${read('src/applications.ts')}\n${read('src/operations.ts')}`;
+    const sources = `${read('src/modules/applications/applications.ts')}\n${read('src/modules/operations/operations.ts')}`;
     expect(sources).toContain('ON DUPLICATE KEY UPDATE');
     expect(sources).toContain('FOR UPDATE');
     expect(sources).not.toMatch(/::uuid|ON CONFLICT|pg_advisory|hashtextextended/i);

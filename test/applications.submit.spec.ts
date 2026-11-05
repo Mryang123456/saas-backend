@@ -1,9 +1,9 @@
 import { Prisma } from '@prisma/client';
 import { describe, expect, it, vi } from 'vitest';
-import type { PrismaService } from '../src/prisma.service';
-import type { Principal } from '../src/common';
-import { ApiError } from '../src/common';
-import { ApplicationsController } from '../src/applications';
+import type { PrismaService } from '../src/infrastructure/prisma/prisma.service';
+import type { Principal } from '../src/common/common';
+import { ApiError } from '../src/common/common';
+import { ApplicationsController } from '../src/modules/applications/applications';
 
 const principal: Principal = {
   tenantId: '00000000-0000-4000-8000-000000000001',

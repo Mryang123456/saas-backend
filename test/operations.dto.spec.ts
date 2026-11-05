@@ -2,7 +2,7 @@ import 'reflect-metadata';
 import { plainToInstance } from 'class-transformer';
 import { validate } from 'class-validator';
 import { describe,expect,it } from 'vitest';
-import { ApprovalActionDto,AuditQueryDto } from '../src/operations.dto';
+import { ApprovalActionDto,AuditQueryDto } from '../src/modules/operations/operations.dto';
 
 describe('operations DTO validation',()=>{
  it('rejects an invalid approval action and version',async()=>{

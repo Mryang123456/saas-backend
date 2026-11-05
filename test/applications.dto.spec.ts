@@ -2,7 +2,7 @@ import 'reflect-metadata';
 import { plainToInstance } from 'class-transformer';
 import { validate } from 'class-validator';
 import { describe, expect, it } from 'vitest';
-import { CreateApplicationDto, UpdateApplicationDto } from '../src/applications.dto';
+import { CreateApplicationDto, UpdateApplicationDto } from '../src/modules/applications/applications.dto';
 
 const draft = {
   title: '研发设备采购',

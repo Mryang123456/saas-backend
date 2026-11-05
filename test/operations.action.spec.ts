@@ -1,8 +1,8 @@
 import { describe, expect, it, vi } from 'vitest';
-import type { PrismaService } from '../src/prisma.service';
-import type { Principal } from '../src/common';
-import { OperationsController } from '../src/operations';
-import { ApprovalAction } from '../src/operations.dto';
+import type { PrismaService } from '../src/infrastructure/prisma/prisma.service';
+import type { Principal } from '../src/common/common';
+import { OperationsController } from '../src/modules/operations/operations';
+import { ApprovalAction } from '../src/modules/operations/operations.dto';
 
 const principal: Principal = {
   tenantId: '00000000-0000-4000-8000-000000000001',

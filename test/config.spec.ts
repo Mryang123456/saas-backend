@@ -1,5 +1,5 @@
 import { describe,expect,it } from 'vitest';
-import { assertSupportedMySqlVersion,validateConfig } from '../src/config';
+import { assertSupportedMySqlVersion,validateConfig } from '../src/config/config';
 const base={DATABASE_URL:'mysql://user:password@localhost:3306/procureflow',SESSION_TOKEN_PEPPER:'x'.repeat(32)};
 describe('production configuration',()=>{it('rejects wildcard CORS',()=>expect(()=>validateConfig({...base,CORS_ALLOWED_ORIGINS:'*'})).toThrow());it('rejects localhost in production',()=>expect(()=>validateConfig({...base,NODE_ENV:'production',CORS_ALLOWED_ORIGINS:'http://localhost:5173'})).toThrow());it('accepts exact https origin',()=>expect(validateConfig({...base,NODE_ENV:'production',CORS_ALLOWED_ORIGINS:'https://app.example.com'}).PORT).toBe(3000));it('rejects a non-MySQL database URL',()=>expect(()=>validateConfig({...base,DATABASE_URL:'postgresql://localhost/procureflow'})).toThrow('DATABASE_URL must use the mysql:// scheme'))});
 

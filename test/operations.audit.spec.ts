@@ -1,7 +1,7 @@
 import { describe,expect,it,vi } from 'vitest';
-import type { Principal } from '../src/common';
-import type { PrismaService } from '../src/prisma.service';
-import { OperationsController } from '../src/operations';
+import type { Principal } from '../src/common/common';
+import type { PrismaService } from '../src/infrastructure/prisma/prisma.service';
+import { OperationsController } from '../src/modules/operations/operations';
 
 const principal:Principal={tenantId:'00000000-0000-4000-8000-000000000001',tenantSlug:'acme',userId:'00000000-0000-4000-8000-000000000002',departmentId:'00000000-0000-4000-8000-000000000003',role:'AUDITOR'};
 

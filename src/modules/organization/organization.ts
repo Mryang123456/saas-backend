@@ -1,9 +1,9 @@
 import { Body, Controller, Get, Param, Patch, Post, Query, UseGuards } from '@nestjs/common';
 import * as argon2 from 'argon2';
 import { ConfigService } from '@nestjs/config';
-import { ApiError, CurrentUser, Principal } from './common';
-import { AuthGuard, summary } from './auth';
-import { PrismaService } from './prisma.service';
+import { ApiError, CurrentUser, Principal } from '../../common/common';
+import { AuthGuard, summary } from '../auth/auth';
+import { PrismaService } from '../../infrastructure/prisma/prisma.service';
 
 @Controller('api/v1/tenants/:tenantId') @UseGuards(AuthGuard)
 export class OrganizationController {

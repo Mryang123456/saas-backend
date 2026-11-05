@@ -2,7 +2,7 @@ import 'reflect-metadata';
 import { plainToInstance } from 'class-transformer';
 import { validate } from 'class-validator';
 import { describe, expect, it } from 'vitest';
-import { LoginDto } from '../src/auth.dto';
+import { LoginDto } from '../src/modules/auth/auth.dto';
 
 describe('LoginDto', () => {
   it('accepts a bounded username and password', async () => {

@@ -1,6 +1,6 @@
 import { Controller, Get, Logger } from '@nestjs/common';
-import { ApiError } from './common';
-import { PrismaService } from './prisma.service';
+import { ApiError } from '../../common/common';
+import { PrismaService } from '../../infrastructure/prisma/prisma.service';
 
 @Controller('health')
 export class HealthController {

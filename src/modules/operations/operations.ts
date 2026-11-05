@@ -1,8 +1,8 @@
 import { Body, Controller, Get, Param, Post, Query, UseGuards } from '@nestjs/common';
-import { ApiError, CurrentUser, Principal, RequestId } from './common';
-import { AuthGuard, summary } from './auth';
-import { PrismaService } from './prisma.service';
-import { aggregateDashboard } from './dashboard';
+import { ApiError, CurrentUser, Principal, RequestId } from '../../common/common';
+import { AuthGuard, summary } from '../auth/auth';
+import { PrismaService } from '../../infrastructure/prisma/prisma.service';
+import { aggregateDashboard } from '../dashboard/dashboard';
 import { ApprovalAction,ApprovalActionDto,AuditQueryDto } from './operations.dto';
 import { ApplicationStatus,ApprovalNode,UserRole } from '@prisma/client';
 import { ApiQuery } from '@nestjs/swagger';

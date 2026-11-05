@@ -3,9 +3,9 @@ import { ApiBody, ApiHeader, ApiOperation, ApiParam, ApiResponse } from '@nestjs
 import { createHash, randomUUID } from 'node:crypto';
 import { ApplicationStatus, Prisma, UserRole } from '@prisma/client';
 import Decimal from 'decimal.js';
-import { ApiError, CurrentUser, Principal, RequestId } from './common';
-import { AuthGuard, summary } from './auth';
-import { PrismaService } from './prisma.service';
+import { ApiError, CurrentUser, Principal, RequestId } from '../../common/common';
+import { AuthGuard, summary } from '../auth/auth';
+import { PrismaService } from '../../infrastructure/prisma/prisma.service';
 import { ApplicationListQueryDto, CreateApplicationDto, SubmitApplicationDto, UpdateApplicationDto } from './applications.dto';
 
 const scope = (p: Principal): any => p.role === 'EMPLOYEE' ? { creatorId: p.userId } : p.role === 'DEPT_MANAGER' ? { departmentId: p.departmentId } : {};

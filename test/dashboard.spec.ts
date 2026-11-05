@@ -1,5 +1,5 @@
 import { describe,expect,it } from 'vitest';
-import { aggregateDashboard } from '../src/dashboard';
+import { aggregateDashboard } from '../src/modules/dashboard/dashboard';
 const department={id:'d1',name:'研发部',status:'ACTIVE'};
 describe('dashboard aggregation',()=>{
  it('fills 30 local days and applies the documented totals',()=>{const result=aggregateDashboard([

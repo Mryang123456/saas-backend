@@ -2,8 +2,8 @@ import { CanActivate, Controller, ExecutionContext, Get, Injectable, Post, Body,
 import { ConfigService } from '@nestjs/config';
 import { createHash, randomBytes } from 'node:crypto';
 import * as argon2 from 'argon2';
-import { ApiError, CurrentUser, Principal, RequestId } from './common';
-import { PrismaService } from './prisma.service';
+import { ApiError, CurrentUser, Principal, RequestId } from '../../common/common';
+import { PrismaService } from '../../infrastructure/prisma/prisma.service';
 import { LoginDto } from './auth.dto';
 
 const hashToken = (token:string, pepper:string) => createHash('sha256').update(token).update(pepper).digest('hex');
